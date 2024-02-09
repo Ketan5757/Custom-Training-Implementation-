@@ -1,0 +1,74 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container-fluid d-flex flex-column">
+    <div class="d-flex justify-content-between mb-4">
+        <div class="w-100 d-flex justify-content-start">
+            <img src='./../static/images/image{{response["action"]}}.png' width="250px" alt="...">
+            <div class="px-3 align-self-center">
+                <h1>{{ response["title"] }}</h1>
+                <p class="card-text">Predict all the correct labels that you want assigned to an image.
+                    <br />
+                    {% if response["action"] == "detect" %}
+                    Object detection models draw bounding boxes around items of interest. For example, identifying
+                    vegetables from images of food.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <form id="pageform" method="post" enctype="multipart/form-data">
+        <div class="card w-100 mb-3 justify-content-center">
+            <div class="card-body d-flex px-3 py-0">
+                <div class="w-100 d-flex justify-content-between align-self-center mt-3">
+                    <div class="mb-3 w-100 ">
+                        <label style="font-size: 18px;" for="dataset">Select a dataset :
+                        </label>
+                        <select id="dataset" name="dataset">
+                            <option>Flowers</option>
+                            <option>Cats & Dogs</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 w-100 ">
+                        <label style="font-size: 18px;" for="formFile">Select an image to {{ response['action'] }} :
+                        </label>
+                        <input class="pl-4" accept="image/*" type="file" id="formFile" name="image"
+                            onchange="loadFile(event)">
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="inputImageCard" class="card mb-3 p-3" style="display:none;flex-direction:column;">
+            <div class="align-self-center"><img id="inputImage" src="#" alt="your image" width="200px" /></div>
+            <div class="flex-shrink-1 align-self-center my-2">
+                <a href="#" class="btn btn-primary align-self-center" style="min-width: 200px; height: 40px;"
+                    onclick="document.getElementById('pageform').submit(); return false;">{{
+                    response['action'].upper()}}</a>
+            </div>
+        </div>
+    </form>
+
+    {% if "messages" in response %}
+        {% for item in response["results"] %}
+        <div class="card w-100 mb-3 p-3">
+            <div class="card-body d-flex  p-0">
+                <img src="{{item['imageData']}}" width="200px" alt="{{item['imageName']}}"/>
+                <div class="mx-5 d-flex flex-column" style="width: 200px;">
+                    <div>
+                        <strong>Dataset: {{item['dataset']}}</strong>
+                    </div>
+                    <div>
+                        Filename: {{item['imageName']}}
+                    </div>
+                </div>
+                <div style="width: 300px;" >
+                    <strong>Raw Response:</strong> {{item['resultCustom']}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,110 @@
+@font-face {
+    font-family: main-regular;
+    src: url("../font/AnticSlab-Regular.ttf");
+}
+
+@font-face {
+    font-family: main-Bold;
+    src: url("../font/AnticSlab-Regular.ttf");
+}
+
+body{
+    font-family: main-regular;
+}
+
+.btn-outline-primary:hover, .btn-outline-secondary:hover, .btn-outline-secondary:active, .btn-outline-secondary:visited {
+    background-color: #6594ed !important;
+}
+
+.btn-outline-primary{
+    background-color: #f5f8fe !important;
+}
+
+.sidebarLinkHeader {
+    color:#a1a5bd;
+    font-size: 16px;
+    margin-top: 3vh;
+}
+
+.sidebarLinks {
+    color:#6e7598;
+    font-size: 20px;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+.sidebarLinks:hover{
+    background-color: #f5f8fe;
+    border: 5px solid;
+    border-radius: 5px;
+    border-color: #f5f8fe;
+    color:#3661ed;
+    font-weight: 300;
+}
+
+.login-bg {
+    background-image: url("../images/main-bg.jpg");
+    background-color: #cccccc;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+ 
+.four0four-bg {
+    background-image: url("../images/404.png");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.material-symbols-outlined {
+  font-size: 55px !important;
+}
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent, .profileForm, .viewForm, .EmployeeForm, .ConsultantForm, .ContractorForm, .ProfileForm, .JobListingForm, .TiersForm, .ITResourcesForm, .AccountsForm, .ProjectsForm {
+    display: none;
+    margin-top:10px;
+}  
+
+label{
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+th, .card-header{
+    font-weight: bold;
+}
+
+tr{
+    background-color:#FFFFFF
+}

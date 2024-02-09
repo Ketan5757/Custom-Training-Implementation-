@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container-fluid d-flex flex-column">
+    <div class="d-flex justify-content-between mb-4">
+        <div class="w-100 d-flex justify-content-start">
+            <img src='./../static/images/text{{response["action"]}}.png' width="250px" alt="...">
+            <div class="px-3 align-self-center">
+                <h1>{{ response["title"] }}</h1>
+                <p class="card-text">Predict all the correct labels that you want assigned to an image.</p>
+            </div>
+        </div>
+        <div class="flex-shrink-1">
+            <a href="/">
+                <span class="material-symbols-outlined">
+                    close
+                </span></a>
+        </div>
+    </div>
+
+    <div class="card w-100 mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Button</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

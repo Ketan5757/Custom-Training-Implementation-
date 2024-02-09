@@ -1,0 +1,40 @@
+<div class="d-flex align-items-start flex-column bd-highlight" style="position:fixed;">
+    <div class="pt-2 bd-highlight" style="height:13vh;max-width:320px;width:320px;">
+        <a href="{{ '/' if 'userSession' not in response else response['userSession']['baseUrl'] }}">
+            <div class="d-flex justify-content-center">
+                <img src="{{ url_for('static', filename='images/hrs-logo-blue.png') }}" height="70px">
+            </div>
+        </a>
+    </div>
+    <div class="bd-highlight pt-3 text-danger px-5" style="height:80vh;width:100%;">
+        {% if "views" in response %}
+        {% for item in response["views"] %}
+        {% if item != "DEFAULT" and item != "PUBLIC" %}
+        <div class="d-flex sidebarLinkHeader">
+            {{item}}
+        </div>
+        {% endif %}
+
+        {% for view in response["views"][item] %}
+        {% if view.view_tab or "jobs" in request.path %}
+        <a style="text-decoration: none;" href="{{view.view_url}}">
+            <div class="d-flex align-items-start flex-column bd-highlight sidebarLinks">
+                <div class="d-flex flex-row pl-3" style="width:100%;">
+                    <div class="d-flex "><i class="pt-1 mr-4 {{ view.view_icon }}" style="max-width:20px;"></i>{{
+                        view.view_label }}</div>
+                </div>
+            </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+    {% if person != None %}
+    <div class="mt-auto bd-highlight px-4" style="height:7vh;width:100%;">
+        <a type="button" role="button" href="/logout" class="btn btn btn-outline-primary btn-lg btn-block ">
+            <i class="fa-solid fa-arrow-right-from-bracket mr-3 fa-flip-horizontal"></i>Logout
+        </a>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
