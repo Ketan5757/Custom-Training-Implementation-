@@ -1,2 +1,2 @@
 # Custom-Training-Implementation-
-The code in Task.py file is used to deploy the model by importing tensor flow and the above screnshot shows the code for training the model .
+The code in Task.py file is used to deploy the model by importing tensor flow and the above screnshot shows the code for training the model and in Templates file there are some html , js and css files.
