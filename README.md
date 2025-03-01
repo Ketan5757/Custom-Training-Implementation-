@@ -1,4 +1,4 @@
-# 🐱🐶 Image Classification: AutoML vs. Custom Training (GCP)  
+# 🐱🐶 Image Classification: AutoML vs. Custom Training   
 
 This project explores **image classification** using **Google Cloud AutoML and Custom Training (TensorFlow)** to compare their accuracy, efficiency, and computational performance. The dataset consists of **cats and dogs images**, and the goal is to evaluate the advantages and trade-offs of both approaches for real-world applications.  
 
